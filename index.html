@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports App Headline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .card-header {
+            margin-bottom: 20px;
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .headline {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease-in-out;
+        }
+        .content p {
+            margin-bottom: 15px;
+        }
+        .slider-container {
+            margin-top: 20px;
+        }
+        .slider {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .emotion-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h2>Today's Top Sports Story</h2>
+        </div>
+        <div class="content">
+            <h1 id="headline" class="headline">Underdog Team Clinches Championship in Stunning Upset</h1>
+            <p>
+                In a shocking turn of events, the underdog team defied all odds to secure 
+                their first championship title in decades. Fans and analysts alike are 
+                calling it the greatest Cinderella story in recent sports history.
+            </p>
+            <div class="slider-container">
+                <p>Adjust the emotion slider:</p>
+                <input type="range" min="0" max="4" value="0" class="slider" id="emotionSlider">
+                <p class="emotion-text">Current emotion: <span id="currentEmotion">Neutral</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const headline = document.getElementById('headline');
+        const slider = document.getElementById('emotionSlider');
+        const currentEmotion = document.getElementById('currentEmotion');
+
+        const fonts = [
+            'Arial, sans-serif',
+            'Impact, sans-serif',
+            'Brush Script MT, cursive',
+            'Courier New, monospace',
+            'Times New Roman, serif'
+        ];
+
+        const emotions = ['Neutral', 'Excited', 'Intense', 'Nostalgic', 'Dramatic'];
+
+        slider.addEventListener('input', function() {
+            const index = parseInt(this.value);
+            headline.style.fontFamily = fonts[index];
+            currentEmotion.textContent = emotions[index];
+        });
+    </script>
+</body>
+</html>
